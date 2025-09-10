@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "anasayfas",
+  "info": {
+    "singularName": "anasayfa",
+    "pluralName": "anasayfas",
+    "displayName": "Anasayfa"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroBaslik": {
+      "type": "string"
+    },
+    "heroAciklama": {
+      "type": "text"
+    },
+    "heroGorsel": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
