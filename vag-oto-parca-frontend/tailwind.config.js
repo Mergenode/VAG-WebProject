@@ -12,6 +12,7 @@ module.exports = {
         'v-blue': '#2563eb',
         'v-light-gray': '#f1f5f9',
         'v-gray': '#a0aec0',
+        'v-bone': '#f9f6ee',
       },
     },
   },

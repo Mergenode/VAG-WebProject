@@ -23,7 +23,7 @@ export default function Header({ logoUrl, logoWidth, logoHeight }: HeaderProps) 
               alt="VAG OTO PARÇA Logosu"
               width={150}
               height={(150 / logoWidth) * logoHeight}
-              style={{ height: '80px', width: 'auto' }}
+              style={{ height: '40px', width: 'auto' }}
               priority
             />
           ) : (

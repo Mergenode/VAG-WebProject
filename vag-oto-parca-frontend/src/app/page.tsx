@@ -184,8 +184,8 @@ export default async function Home() {
           <div className="bg-black text-white rounded-2xl p-12 text-center flex flex-col items-center">
             <h2
               className="text-4xl font-bold 
-                   bg-gradient-to-tr from-blue-400 via-gray-200 to-white 
-                   bg-clip-text text-transparent"
+                      bg-gradient-to-tr from-blue-400 via-gray-200 to-white 
+                      bg-clip-text text-transparent"
             >
               Aracınız İçin Doğru Parçayı <br /> Birlikte Bulalım.
             </h2>
