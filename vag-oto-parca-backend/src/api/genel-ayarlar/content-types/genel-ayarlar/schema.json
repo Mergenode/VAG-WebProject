@@ -1,20 +1,17 @@
 {
-  "kind": "collectionType",
-  "collectionName": "markas",
+  "kind": "singleType",
+  "collectionName": "genel_ayarlars",
   "info": {
-    "singularName": "marka",
-    "pluralName": "markas",
-    "displayName": "Marka"
+    "singularName": "genel-ayarlar",
+    "pluralName": "genel-ayarlars",
+    "displayName": "Genel Ayarlar"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "isim": {
-      "type": "string"
-    },
-    "logo": {
+    "site_logosu": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [

@@ -472,6 +472,70 @@ export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiGenelAyarlarGenelAyarlar extends Struct.SingleTypeSchema {
+  collectionName: 'genel_ayarlars';
+  info: {
+    displayName: 'Genel Ayarlar';
+    pluralName: 'genel-ayarlars';
+    singularName: 'genel-ayarlar';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::genel-ayarlar.genel-ayarlar'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    site_logosu: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHakkimizdaSayfasiHakkimizdaSayfasi
+  extends Struct.SingleTypeSchema {
+  collectionName: 'hakkimizda_sayfasis';
+  info: {
+    displayName: 'Hakkimizda Sayfasi';
+    pluralName: 'hakkimizda-sayfasis';
+    singularName: 'hakkimizda-sayfasi';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    degerlerBasligi: Schema.Attribute.String;
+    girisMetni: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::hakkimizda-sayfasi.hakkimizda-sayfasi'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    sayfaBasligi: Schema.Attribute.String;
+    sayfaGorseli: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiMarkaMarka extends Struct.CollectionTypeSchema {
   collectionName: 'markas';
   info: {
@@ -495,10 +559,6 @@ export interface ApiMarkaMarka extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    yedek_parca: Schema.Attribute.Relation<
-      'manyToOne',
-      'api::yedek-parca.yedek-parca'
-    >;
   };
 }
 
@@ -524,7 +584,8 @@ export interface ApiYedekParcaYedekParca extends Struct.CollectionTypeSchema {
       'api::yedek-parca.yedek-parca'
     > &
       Schema.Attribute.Private;
-    markas: Schema.Attribute.Relation<'oneToMany', 'api::marka.marka'>;
+    marka: Schema.Attribute.Relation<'oneToOne', 'api::marka.marka'>;
+    one_cikan: Schema.Attribute.Boolean;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1044,6 +1105,8 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::anasayfa.anasayfa': ApiAnasayfaAnasayfa;
       'api::banner.banner': ApiBannerBanner;
+      'api::genel-ayarlar.genel-ayarlar': ApiGenelAyarlarGenelAyarlar;
+      'api::hakkimizda-sayfasi.hakkimizda-sayfasi': ApiHakkimizdaSayfasiHakkimizdaSayfasi;
       'api::marka.marka': ApiMarkaMarka;
       'api::yedek-parca.yedek-parca': ApiYedekParcaYedekParca;
       'plugin::content-releases.release': PluginContentReleasesRelease;

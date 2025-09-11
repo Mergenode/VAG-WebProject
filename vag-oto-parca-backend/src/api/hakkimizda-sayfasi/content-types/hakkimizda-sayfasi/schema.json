@@ -1,0 +1,34 @@
+{
+  "kind": "singleType",
+  "collectionName": "hakkimizda_sayfasis",
+  "info": {
+    "singularName": "hakkimizda-sayfasi",
+    "pluralName": "hakkimizda-sayfasis",
+    "displayName": "Hakkimizda Sayfasi"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sayfaBasligi": {
+      "type": "string"
+    },
+    "sayfaGorseli": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "degerlerBasligi": {
+      "type": "string"
+    },
+    "girisMetni": {
+      "type": "text"
+    }
+  }
+}

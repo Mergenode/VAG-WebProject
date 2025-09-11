@@ -24,11 +24,13 @@
         "audios"
       ]
     },
-    "markas": {
+    "one_cikan": {
+      "type": "boolean"
+    },
+    "marka": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::marka.marka",
-      "mappedBy": "yedek_parca"
+      "relation": "oneToOne",
+      "target": "api::marka.marka"
     }
   }
 }
