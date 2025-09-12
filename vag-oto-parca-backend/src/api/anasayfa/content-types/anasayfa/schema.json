@@ -17,9 +17,9 @@
     "heroAciklama": {
       "type": "text"
     },
-    "heroGorsel": {
+    "heroSliderGorselleri": {
       "type": "media",
-      "multiple": false,
+      "multiple": true,
       "allowedTypes": [
         "images",
         "files",

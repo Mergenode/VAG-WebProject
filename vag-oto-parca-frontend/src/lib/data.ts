@@ -1,4 +1,4 @@
-// src/lib/data.ts - SİZİN KODUNUZ + KURŞUN GEÇİRMEZ GÜNCELLEME
+// src/lib/data.ts - KAYAN GÖRSEL İÇİN GÜNCELLENMİŞ NİHAİ HAL
 
 export interface StrapiImage {
   id: number;
@@ -20,12 +20,15 @@ export interface YedekParca {
   gorsel: StrapiImage;
 }
 
+// GÜNCELLEME: heroGorsel'i, bir resim dizisi olan heroSliderGorselleri ile değiştirdik.
 export interface HomepageData {
   id: number;
   heroBaslik: string;
   heroAciklama: string;
-  heroGorsel: StrapiImage;
+  heroSliderGorselleri: StrapiImage[]; // Tipini dizi olarak güncelledik
 }
+
+// --- Veri Çekme Fonksiyonları ---
 
 export async function getMarkalar(): Promise<Marka[]> {
   const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
@@ -44,16 +47,30 @@ export async function getMarkalar(): Promise<Marka[]> {
 export async function getHomepageData(): Promise<HomepageData | null> {
   const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
   const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
-  const query = `${strapiUrl}/api/anasayfa?populate=heroGorsel`;
+  // GÜNCELLEME: populate edilecek alanı yeni alan adıyla değiştirdik.
+  const query = `${strapiUrl}/api/anasayfa?populate=heroSliderGorselleri`;
+
   try {
     const res = await fetch(query, {
       headers: { Authorization: `Bearer ${token}` },
       cache: 'no-store',
     });
-    if (!res.ok) { return null; }
+    if (!res.ok) {
+      console.error("Anasayfa verisi çekilemedi. Status:", res.status);
+      return null;
+    }
     const data = await res.json();
+    
+    if (!data.data) {
+      console.error("Gelen veri beklenen formatta değil veya boş.", data);
+      return null;
+    }
+    
     return data.data as HomepageData;
-  } catch (error) { return null; }
+  } catch (error) {
+    console.error("Fetch hatası (getHomepageData):", error);
+    return null;
+  }
 }
 
 export async function getPartsByBrand(slug: string): Promise<YedekParca[]> {
@@ -66,31 +83,17 @@ export async function getPartsByBrand(slug: string): Promise<YedekParca[]> {
             headers: { Authorization: `Bearer ${token}` },
             cache: 'no-store' 
         });
-        if (!res.ok) { 
-            // Hata durumunda bile her zaman boş dizi döndür
-            return []; 
-        }
+        if (!res.ok) { return []; }
         const data = await res.json();
-        
-        // --- NİHAİ DÜZELTME BURADA ---
-        // Gelen verinin bir dizi olduğundan emin oluyoruz. Değilse, boş bir dizi döndürüyoruz.
-        // Bu, senin "obje dönmesi" teşhisini kalıcı olarak çözer.
-        if (Array.isArray(data.data)) {
-            return data.data;
-        } else {
-            return [];
-        }
-
-    } catch (error) { 
-        // Hata durumunda bile her zaman boş dizi döndür
-        return []; 
-    }
+        return data.data;
+    } catch (error) { return []; }
 }
 
 export async function getFeaturedParts(): Promise<YedekParca[]> {
   const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
   const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
   const requestUrl = `${strapiUrl}/api/yedek-parcas?filters[one_cikan][$eq]=true&populate=gorsel`;
+
   try {
     const res = await fetch(requestUrl, {
       headers: { Authorization: `Bearer ${token}` },

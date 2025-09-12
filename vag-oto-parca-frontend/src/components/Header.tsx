@@ -14,7 +14,7 @@ export default function Header({ logoUrl, logoWidth, logoHeight }: HeaderProps) 
   const navLinkClasses = "relative font-medium text-gray-600 hover:text-black transition-colors after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full";
 
   return (
-    <header className="bg-white/95 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-100 shadow-sm">
+    <header className="bg-slate-200 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-300 shadow-sm">
       <div className="container mx-auto px-6 py-3 flex justify-between items-center">
         <Link href="/" className="flex items-center">
           {logoUrl ? (

@@ -426,8 +426,9 @@ export interface ApiAnasayfaAnasayfa extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     heroAciklama: Schema.Attribute.Text;
     heroBaslik: Schema.Attribute.String;
-    heroGorsel: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
+    heroSliderGorselleri: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<

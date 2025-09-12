@@ -1,8 +1,7 @@
-// src/app/page.tsx - ANİMASYONLU VE ZENGİNLEŞTİRİLMİŞ NİHAİ HAL
+// src/app/page.tsx - YENİ VE SAĞLAM YAPI
 
 import Image from "next/image";
 import Link from "next/link";
-// Güvenilirlik için göreceli yolları kullanalım
 import {
   getMarkalar,
   getHomepageData,
@@ -11,26 +10,20 @@ import {
   type YedekParca,
 } from "../lib/data";
 import { CheckCircle, Wrench, Truck } from "lucide-react";
-import { FadeIn } from "@/components/FadeIn"; // Animasyon bileşenimizi import ediyoruz
+import { FadeIn } from "@/components/FadeIn";
+import { HeroSlider } from "@/components/HeroSlider"; // Yeni slider bileşenini import ediyoruz
 
 export default async function Home() {
-  // Gerekli tüm verileri sunucu tarafında tek seferde çekiyoruz
   const homepageData = await getHomepageData();
   const markalar = await getMarkalar();
   const oneCikanParcalar = await getFeaturedParts();
   const oneCikanMarkalar = markalar.slice(0, 4);
 
-  const heroImageUrl = homepageData
-    ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${homepageData.heroGorsel.url}`
-    : "/placeholder.jpg";
-
   return (
-    <main className="space-y-20">
-      {/* 1. BÖLÜM: KARŞILAMA (HERO) */}
+    <main className="space-y-20 my-30">
       <FadeIn>
         <section className="bg-white">
           <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 items-center gap-12 py-16">
-            {/* Sol Taraf: Metin ve Buton */}
             <div className="text-center md:text-left">
               <h1 className="text-5xl md:text-6xl font-bold leading-tight">
                 {homepageData?.heroBaslik || "Kalite. Güven. Performans."}
@@ -46,16 +39,16 @@ export default async function Home() {
                 Markaları Keşfet
               </Link>
             </div>
-            {/* Sağ Taraf: Görsel */}
+
             <div className="relative w-full h-80 md:h-[500px] rounded-2xl overflow-hidden shadow-xl">
-              <Image
-                src={heroImageUrl}
-                alt="VAG Grubu Yedek Parçaları"
-                fill
-                className="object-cover"
-                priority
-              />
+              {homepageData?.heroSliderGorselleri && (
+                <HeroSlider 
+                    images={homepageData.heroSliderGorselleri} 
+                    altText={homepageData.heroBaslik || 'VAG Grubu Yedek Parçaları'} 
+                />
+              )}
             </div>
+
           </div>
         </section>
       </FadeIn>

@@ -21,11 +21,11 @@ export default function IletisimSayfasi() {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <MapPin className="w-5 h-5 text-v-blue" />
-                <span className="text-gray-700">Örnek Mah. Test Cad. No:123, Adana</span>
+                <span className="text-gray-700">Yeşilyurt, Kıyıboyu Cd. No:152/A, 01170 Seyhan/Adana</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-v-blue" />
-                <span className="text-gray-700">0 (555) 123 45 67</span>
+                <span className="text-gray-700">0538 935 92 10</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-v-blue" />
@@ -44,7 +44,7 @@ export default function IletisimSayfasi() {
               */}
               <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden border">
                  <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d101880.50529815048!2d35.24269186695279!3d37.00166679581971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15288f39a48f02a5%3A0x82f226912860b73!2sAdana%2C%20T%C3%BCrkiye!5e0!3m2!1str!2s!4v1725855491419!5m2!1str!2s" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3185.950254595492!2d35.3122963!3d37.0109831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15288f8e89db6279%3A0x598150af73b53746!2sVolkswagen%20Yedek%20Par%C3%A7a%20Adana%20Audi%20Seat%20Skoda%20Yedek%20Par%C3%A7a%20Vag%20Otomotiv!5e0!3m2!1str!2str!4v1757636314272!5m2!1str!2str" 
                     width="100%" 
                     height="100%" 
                     style={{ border:0 }} 
