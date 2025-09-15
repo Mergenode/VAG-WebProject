@@ -15,7 +15,7 @@ export default async function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-white border-t border-gray-200 mt-20">
+    <footer className="bg-slate-200 border-t border-gray-300 mt-20">
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           
@@ -70,11 +70,11 @@ export default async function Footer() {
             <ul className="space-y-3 text-gray-500 text-sm">
               <li className="flex items-start gap-2">
                 <MapPin size={16} className="mt-1 flex-shrink-0" />
-                <span>Örnek Mah. Test Cad. No:123, Adana</span>
+                <span>Yeşilyurt, Kıyıboyu Cd. No:152/A, 01170 Seyhan/Adana</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={16} />
-                <span>0 (555) 123 45 67</span>
+                <span>0 (538) 935 92 10</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={16} />
@@ -83,8 +83,8 @@ export default async function Footer() {
               {/* YENİ EKLENEN INSTAGRAM LİNKİ */}
               <li className="flex items-center gap-2">
                 <Instagram size={16} />
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-black">
-                  @vagotoparca
+                <a href="https://www.instagram.com/vag_otomotiv/" target="_blank" rel="noopener noreferrer" className="hover:text-black">
+                  @vagotomotiv
                 </a>
               </li>
             </ul>
@@ -93,7 +93,7 @@ export default async function Footer() {
         </div>
       </div>
       {/* Alt Bar */}
-      <div className="bg-gray-300">
+      <div className="bg-slate-200">
         <div className="container mx-auto px-6 py-4 text-center text-gray-500 text-sm">
           <p>&copy; {currentYear} VAG OTO PARÇA. Tüm Hakları Saklıdır.</p>
         </div>

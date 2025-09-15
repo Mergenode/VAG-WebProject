@@ -2,11 +2,17 @@
 
 import ContactForm from "../../components/ContactForm"; // Birazdan bu bileşeni oluşturacağız
 import { Mail, Phone, MapPin } from 'lucide-react'; // İkonlar için küçük bir kütüphane ekleyeceğiz
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'İletişim - VAG OTO PARÇA',
+  description: 'Bizimle iletişime geçin. Sorularınız, önerileriniz veya destek talepleriniz için buradayız.',
+};
 
 export default function IletisimSayfasi() {
   return (
     <section>
-      <h1 className="text-4xl font-bold text-center text-v-dark mb-10">İletişim</h1>
+      <h1 className="text-4x2 font-bold text-center text-v-dark mt-10 mb-10">İletişim</h1>
       
       <div className="bg-white p-8 md:p-10 rounded-xl shadow-lg max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -25,7 +31,7 @@ export default function IletisimSayfasi() {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-v-blue" />
-                <span className="text-gray-700">0538 935 92 10</span>
+                <span className="text-gray-700">0 (538) 935 92 10</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-v-blue" />

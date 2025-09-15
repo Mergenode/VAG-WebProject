@@ -5,7 +5,6 @@ import { useInView } from 'react-intersection-observer';
 
 export function FadeIn({ children }: { children: React.ReactNode }) {
   const { ref, inView } = useInView({
-    triggerOnce: true, // Animasyon sadece bir kere tetiklensin
     threshold: 0.1,    // Elementin %10'u göründüğünde tetiklensin
   });
 

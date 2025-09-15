@@ -4,6 +4,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getMarkalar, type Marka } from '../../lib/data';
 import { FadeIn } from '../../components/FadeIn';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Markalarımız - VAG OTO PARÇA',
+  description: '20 yılı aşkın tecrübemizle VAG grubu araçlar için en kaliteli yedek parça çözümlerini sunuyoruz. Misyonumuz ve vizyonumuz hakkında daha fazla bilgi edinin.',
+};
 
 export default async function TumMarkalarSayfasi() {
   const markalar = await getMarkalar();

@@ -4,6 +4,12 @@ import Image from 'next/image';
 import { getAboutPageData } from '@/lib/data';
 import { ShieldCheck, Users, Truck } from 'lucide-react'; // Değerler için ikonlar
 import { FadeIn } from '@/components/FadeIn';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Hakkımızda - VAG OTO PARÇA',
+  description: '20 yılı aşkın tecrübemizle VAG grubu araçlar için en kaliteli yedek parça çözümlerini sunuyoruz. Misyonumuz ve vizyonumuz hakkında daha fazla bilgi edinin.',
+};
 
 // Strapi'nin Rich Text formatını HTML'e çevirmek için bir kütüphane
 import { Remarkable } from 'remarkable';
